@@ -1,0 +1,236 @@
+html{
+    width: 100%;
+    height: 100%;
+}
+body{
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+ul{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+#liveMain{
+    width: 100%;
+    height: 100%;
+}
+#liveMain > div{
+
+    float: left;
+}
+.liveLeft{
+    width: 200px;
+    height: 100%;
+    background: #333;
+    padding-top: 1px;
+}
+.liveLeft .logo{
+    margin: auto;
+    margin-top: 60px;
+    width: 160px;
+    height: 160px;
+    overflow: hidden;
+    border-radius: 4px;
+}
+.peoifo{
+    margin-top: 20px;
+}
+.peoifo li{
+    text-align: center;
+    color: #fff;
+    font-size: 12px;
+    padding-top: 10px;
+
+}
+.liveLeft button{
+    display: block;
+    width: 100px;
+    height: 40px;
+    background: goldenrod;
+    margin: auto;
+    text-align: center;
+    font-size: 18px;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    margin-top: 30px;
+    cursor: pointer;
+    outline: none;
+}
+
+.liveMiddle{
+    width: 1300px;
+    height: 800px;
+}
+.giftList{
+    width: 96%;
+    margin: auto;
+    margin-top: 20px;
+}
+.giftList ul{
+    overflow: hidden;
+}
+.giftList ul li{
+    float: left;
+    width: 45px;
+    margin-right: 20px;
+}
+.giftList ul li i{
+    display: block;
+    width: 45px;
+    height: 45px;
+    overflow: hidden;
+    border: 1px solid #333;
+}
+.giftList ul li span{
+    display: block;
+    font-size: 12px;
+    text-align: center;
+}
+.liveContent{
+    width: 96%;
+    margin: auto;
+    background: #000;
+    height: 96%;
+}
+.liveRight{
+    width: 400px;
+    height: 100%;
+}
+.liveRight > ul{
+    border-bottom: 2px solid #333333;
+    overflow: hidden;
+}
+.liveRight > ul li{
+    float: left;
+    width: 25%;
+    text-align: center;
+    line-height: 40px;
+    color: #333333;
+    cursor: pointer;
+}
+.chatCon{
+    position: relative;
+    height: 700px;
+}
+#doubleGift{
+    position: absolute;
+    top:0;
+}
+.chatCon > ul li{
+    padding: 8px;
+}
+.chatCon > ul li span{
+    color: goldenrod;
+}
+.msgInput .listUtil{
+    width: 100%;
+    height: 40px;
+    background: darkgoldenrod;
+    line-height: 40px;
+    color: #fff;
+    text-indent: 10px;
+}
+.msgInput .textInput{
+    margin-top: 10px;
+}
+.msgInput .textInput textarea{
+    display: block;
+    width: 90%;
+    height: 60px;
+    border: 1px solid #333333;
+    margin: auto;
+    font-size: 16px;
+}
+.sengMsg button{
+    display: block;
+    width: 100px;
+    height: 40px;
+    background: goldenrod;
+    text-align: center;
+    font-size: 18px;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    margin-top: 30px;
+    cursor: pointer;
+    outline: none;
+    float: right;
+    margin-right: 15px;
+}
+.sendIfo{
+    margin-top: 20px;
+}
+.sendIfo .giftifo{
+    float: left;
+    margin-right: 20px;
+    outline: none;
+
+}
+.sendIfo .giftifo input{
+    width: 160px;
+    height: 30px;
+    border: 1px solid #ccc;
+}
+.sendIfo button{
+    display: block;
+    width: 100px;
+    height: 34px;
+    background: goldenrod;
+    text-align: center;
+    font-size: 18px;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+    float: left;
+    margin-right: 15px;
+}
+.active{
+    border: 1px solid goldenrod !important;
+}
+.giftNum{
+    position: relative;
+}
+.giftNum .numlist{
+    position: absolute;
+    width: 160px;
+    height: 200px;
+    background: rgba(0,0,0,0.6);
+    top:-200px;
+    right: 0;
+    display: none;
+}
+.giftNum .numlist ul li{
+    width: 100%;
+    line-height: 40px;
+    color: #fff;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+}
+.giftNum .numlist ul li:hover{
+    background: rgba(255,255,255,0.5);
+}
+
+
+/*动画样式及背景*/
+#doubleGift{width: 100%;}
+.textDiv{position:absolute;font-size:20px;font-weight:bold;white-space:nowrap;line-height:40px;z-index:40;}
+.animateB{position: absolute;width: 400px;height: 585px;overflow: hidden;background-position: 0px 0px;}
+.animateA{position: absolute;width: 870px;height: 500px;overflow: hidden;background-position: 0px 0px;}
+.gift_qiqiu{background: url(../img/animate/qiqiu.png) no-repeat;}
+.gift_zuanjie{background: url(../img/animate/zuanjie.png) no-repeat;}
+.gift_youting{background: url(../img/animate/youlun.png) no-repeat;}
+.gift_falali{background: url(../img/animate/falali.png) no-repeat;}
+.gift_jinpai{background: url(../img/animate/jinpai.png) no-repeat;}
+.doubImg_yinliao{background:url(../img/animate/yinliao.png) no-repeat;}
+.doubImg_shouhuan{background:url(../img/animate/shouhuan.png) no-repeat;}
+.doubImg_toukui{background:url(../img/animate/toukui.png) no-repeat;}
+.doubImg_qitong{background:url(../img/animate/qitong.png) no-repeat;}
+.doubImg_qixing{background:url(../img/animate/qixing.png) no-repeat;}
