@@ -78,18 +78,16 @@
 //礼物横幅效果
     //giftLine();
     function giftLine(name, giftname, Lv, type) {
-        var oDIV = $("<div>").css({ "position": "relative", "width": "100%", "height": "40px", "margin-top": "10px" }).appendTo(".HengfuBlock");
+        var oDIV = $("<div>").addClass("giftline").appendTo(".HengfuBlock");
         if(giftname == "LOVE气球"||giftname == "金牌主播"||giftname == "钻戒"){
-            var oDivStyle = { "position": "absolute", "width": "100%", "height": "40px", "background": "#fff", "top": "0px", "background": "url(img/animate/paivel.png) no-repeat center" };
+            var oDiv = $("<div>").addClass("animatebg1").appendTo(oDIV);
             var str = "<i style='margin-left:10px; color:#005aff;'>" + name + "送出" + giftname + "</i>";
         } else {
-            var oDivStyle = { "position": "absolute", "width": "100%", "height": "40px", "background": "#fff", "top": "0px", "background": "url(img/animate/rich.png) no-repeat center" };
+            var oDiv = $("<div>").addClass("animatebg2").appendTo(oDIV);
             var str = "<i style='margin-left:10px; color:#fff;'>" + name + "送出" + giftname + "</i>";
         }
-        var oTextStyle = { "width": "600px", "padding": "6px 0px", "margin": "auto", "font-size": "18px", "text-align": "center", "color": "#005aff" };
-        var oDiv = $("<div>").css(oDivStyle).appendTo(oDIV);
-        var oText = $("<div>").css(oTextStyle).appendTo(oDiv);
-        var oImg = $("<span>").css({"background-repeat": "no-repeat" }).css("margin-top","-5px").addClass("wealth"+ Lv).appendTo(oText);
+        var oText = $("<div>").addClass("oTextStyle").appendTo(oDiv);
+        var oImg = $("<span>").addClass("lvstyle").addClass("wealth"+ Lv).appendTo(oText);
         oText.append(str);
         oDiv.animate({ "opacity": 0 }, 6000, function () {
             $(this).remove;
@@ -100,7 +98,7 @@
 
     var gift_array = new Array();
 
-    window.setInterval(function () {
+    window.setInterval(function () {   //定时检查用户用户的单击送礼间隔是否超过15秒，未超过则达成连击，否则数据清零，再次点击重新计数
         
         for (var i in gift_array) // 用户层
         {
@@ -116,18 +114,46 @@
         }
 
     }, 2000);
+    
+    
+    
+    function  recordUserGift(name,type,knum) {
+        if (gift_array[name] == null)
+        {
+            gift_array[name] = new Array();
+            gift_array.length++;
+
+            gift_array[name][type] = new Object();
+            gift_array[name].length++;
+
+            gift_array[name][type].num = knum;
+            gift_array[name][type].time = new Date().getTime();
+        } else
+        {
+            if (gift_array[name][type] == null)
+            {
+                gift_array[name][type] = new Object();
+                gift_array[name].length++;
+
+                gift_array[name][type].num = knum;
+                gift_array[name][type].time = new Date().getTime();
+
+            } else
+            {
+                gift_array[name][type].num += knum;
+                gift_array[name][type].time = new Date().getTime();
+            }
+
+        }
+    }
 
 
 
 
     function doubleHit(type, knum, name, Lv, uid) {
         knum = parseInt(knum);
-        var oDIVstyle = { "position": "relative", "width": "100%", "height": "80px", "background": "url(img/animate/douhit.png) no-repeat center", "margin-top": "10px" };
-        var oDivStyle = { "position": "absolute", "width": "80px", "height": "100%", "top": "0", "left": "160px"};
-        var oSpanStyle = { "position": "absolute", "left": "100%", "top": "20px", "font-size": "30px", "color": "#252ff6" };
-        var oSpanst = { "position": "absolute", "width": "220px", "height": "20px", "right": "100%", "top": "30px", "font-size": "14px", "color": "#252ff6","text-align":"right" }
         if (knum >= 66) {
-            var oDIV = $("<div>").css(oDIVstyle).appendTo("#doubleGift")
+            var oDIV = $("<div>").addClass("doubleBg").appendTo("#doubleGift")
             var dounum = 0;
             var oLast = $("<div>");
             var clock = setInterval(function () {
@@ -137,11 +163,11 @@
                 } else {
                     dounum = dounum + 10;
                 }
-                var oDiv = $("<div>").css(oDivStyle).addClass("doubImg_" + type).appendTo(oDIV);
+                var oDiv = $("<div>").addClass("doubleDiv").addClass("doubImg_" + type).appendTo(oDIV);
                 oLast = oDiv;
-                var oSpan = $("<span>").css(oSpanStyle).html("X" + dounum).appendTo(oDiv);
-                var oSifo = $("<div>").css(oSpanst).appendTo(oDiv);
-                var oImg = $("<span>").css({ "background-repeat": "no-repeat","margin-top":"-5px"}).addClass("wealth" + Lv).appendTo(oSifo);
+                var oSpan = $("<span>").addClass("doubleSpan").html("X" + dounum).appendTo(oDiv);
+                var oSifo = $("<div>").addClass("doubleSt").appendTo(oDiv);
+                var oImg = $("<span>").addClass("lvstyle").addClass("wealth" + Lv).appendTo(oSifo);
                 var str = name + "送出";
                 oSifo.append(str);
                 oDiv.animate({
@@ -157,42 +183,15 @@
             },200);
         } else if (type != "yinliao" && type != "shouhuan")
         {
-            if (gift_array[name] == null)
-            {
-                gift_array[name] = new Array();
-                gift_array.length++;
-
-                gift_array[name][type] = new Object();
-                gift_array[name].length++;
-
-                gift_array[name][type].num = knum;
-                gift_array[name][type].time = new Date().getTime();
-            } else
-            {
-                if (gift_array[name][type] == null)
-                {
-                    gift_array[name][type] = new Object();
-                    gift_array[name].length++;
-
-                    gift_array[name][type].num = knum;
-                    gift_array[name][type].time = new Date().getTime();
-
-                } else
-                {
-                    gift_array[name][type].num += knum;
-                    gift_array[name][type].time = new Date().getTime();
-                }
-               
-            }
+            recordUserGift(name,type,knum);//记录该用户有无送礼记录，没有则添加进全局数组，再记录该用户送的该礼物在其昵称下有无记录，没有则添加进记录，（该记录方式以确保用户能够读取其他用户送出的礼物数量，从而达到在异地连击效果）
 
             $(".div"+uid).remove();
-            var oDIV = $("<div>").addClass("div"+uid).css(oDIVstyle).appendTo("#doubleGift");
+            var oDIV = $("<div>").addClass("div"+uid).addClass("doubleBg").appendTo("#doubleGift");
             var oDiv = $("<div>").addClass("doubImg_" + type).appendTo(".div"+uid);
-            //oSc = oDiv;
-            oDiv.css(oDivStyle);
-            var oSpan = $("<span>").css(oSpanStyle).html("X" + gift_array[name][type].num).appendTo(oDiv);
-            var oSifo = $("<div>").css(oSpanst).appendTo(oDiv);
-            var oImg = $("<span>").css({ "background-repeat": "no-repeat", "margin-top": "-5px" }).addClass("wealth" + Lv).appendTo(oSifo);
+            oDiv.addClass("doubleDiv");
+            var oSpan = $("<span>").addClass("doubleSpan").html("X" + gift_array[name][type].num).appendTo(oDiv);
+            var oSifo = $("<div>").addClass("doubleSt").appendTo(oDiv);
+            var oImg = $("<span>").addClass("lvstyle").addClass("wealth" + Lv).appendTo(oSifo);
             var str = name + "送出";
             oSifo.append(str);
             oDiv.animate({
@@ -207,7 +206,6 @@
 
     function sendGiftMovie(giftType, Gn, mingzi, level, userid) {
         if (giftType == "LOVE气球") {
-
             startAnimate("qiqiu", 400, 585, 50, true, mingzi, giftType, level);
         }
         if (giftType == "钻戒") {

@@ -86,6 +86,10 @@ li{
     overflow: hidden;
     border: 1px solid #333;
 }
+.giftList ul li i img{
+    width: 100%;
+    height: 100%;
+}
 .giftList ul li span{
     display: block;
     font-size: 12px;
@@ -234,3 +238,13 @@ li{
 .doubImg_toukui{background:url(../img/animate/toukui.png) no-repeat;}
 .doubImg_qitong{background:url(../img/animate/qitong.png) no-repeat;}
 .doubImg_qixing{background:url(../img/animate/qixing.png) no-repeat;}
+
+.giftline{ position: relative;width: 100%; height: 40px; margin-top: 10px }
+.animatebg1{ position: absolute; width: 100%;height: 40px; background: #fff; top: 0px; background: url(../img/animate/paivel.png) no-repeat center }
+.animatebg2{ position: absolute; width: 100%; height: 40px; background: #fff; top: 0px; background: url(../img/animate/rich.png) no-repeat center}
+.oTextStyle{ width: 600px; padding: 6px 0px; margin: auto; font-size: 18px; text-align: center; color: #005aff }
+.lvstyle{background-repeat: no-repeat; margin-top:-5px }
+.doubleBg{ position: relative; width: 100%; height: 80px; background: url(../img/animate/douhit.png) no-repeat center; margin-top: 10px }
+.doubleDiv{ position: absolute; width: 80px; height: 100%; top: 0; left: 160px}
+.doubleSpan{ position: absolute; left: 100%; top: 20px; font-size: 30px; color: #252ff6}
+.doubleSt{ position: absolute; width: 220px; height: 20px; right: 100%; top: 30px; font-size: 14px; color: #252ff6; text-align:right}
